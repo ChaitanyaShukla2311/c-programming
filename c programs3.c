@@ -92,3 +92,50 @@ int main()
 
     return 0;
 }
+
+
+
+
+
+
+
+
+#include <stdio.h>
+
+int main()
+{
+    int arr[10];
+    printf("Enter 10 array elements between 1 to 5 :");
+    for(int i=0;i<10;i++)
+    {
+        scanf("%d",&arr[i]);
+        if(arr[i]<1 || arr[i]>5)
+        {
+            printf("Only Enter element between 1 to 5:");
+            scanf("%d",&arr[i]);
+        }
+    }
+    
+    printf("Array : ");
+    for(int i=0;i<10;i++)
+    {
+        printf("%d",arr[i]);
+    }
+    
+
+    for(int i=0;i<10;i++)
+    {
+        int freq=0;
+        for(int j=0;j<10;j++)
+        {
+            if(arr[i]==arr[j])
+            {
+                freq++;
+            }
+        }
+        printf("\n%d = freq is %d\n",arr[i],freq);
+    }
+
+    return 0;
+}
+
