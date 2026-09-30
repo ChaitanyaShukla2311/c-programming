@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include<stdlib.h>
+
+struct node {
+	int data;
+	struct node *next;
+};
+
+struct node *head = NULL;
+
+void insert() {
+	struct node *newnode,*temp;
+
+	newnode =(struct node *)malloc(sizeof(struct node));
+
+	printf("Enter data : ");
+	scanf("%d",&newnode -> data);
+
+	if(head == NULL) {
+		head = newnode;
+		newnode->next = head;
+	} else {
+		temp = head;
+		while(temp -> next != head) {
+			temp = temp->next;
+		}
+		temp->next =newnode;
+		newnode->next =head;
+	}
+}
+
+void display() {
+	struct node *temp = head;
+
+	if(head == NULL) {
+		printf("List is empty");
+		return;
+	}
+
+	do{
+	    printf("%d ->", temp->data);
+		temp = temp->next;
+	}while(temp!=head);
+	
+	printf("Back to head");
+}
+
+int main() {
+	int n,i;
+
+	printf("Enter nodes:");
+	scanf("%d",&n);
+
+	for(i=0; i<n; i++) {
+		insert();
+	}
+
+	printf("circular Singly linked list:\n");
+	display();
+
+	return 0;
+}
+
